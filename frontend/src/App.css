@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+.link{
+    text-decoration: none !important;
+}
+.link:hover{
+    color: blue !important;
+    transition: all 0.3s ease-in-out !important;
+}
+.text-color{
+    color: rgb(45, 85, 128)
+}
+.b{
+    background-color:  rgb(45, 85, 128);
+    border-radius: 20px;
+    border: 1px solid rgb(45, 85, 128);
+    color: white;
+}
+.b:hover {
+    background-color: white;
+    border: 1px solid rgb(45, 85, 128);
+    color: black;
+    transition: all 0.3s ease-in-out; 
+  }
+  .b2{
+    text-decoration: none !important;
+    background-color:  rgb(255, 255, 255);
+    border-radius: 20px;
+    border: 1px solid rgb(45, 85, 128);
+    color: rgb(0, 0, 0);
+    
+  }
+  .b2:hover{
+    background-color: rgb(45, 85, 128);
+    border: 1px solid black;
+    color: white;
+    transition: all 0.3s ease-in-out; 
+  }
+  .bgblue{
+    background-color: rgb(45, 85, 128);
+  }
+  .no-underline{
+    text-decoration: none !important;
+  }
