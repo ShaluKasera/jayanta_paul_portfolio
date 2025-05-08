@@ -34,7 +34,7 @@ const Achievements = () => {
 
   return (
     <div>
-      <p className="text-left text-2xl font-mono">Fellowship & Award</p>
+      <p className="text-left text-2xl font-mono">Academic Achievements & Recognitions</p>
       <div className="bgblue w-full h-[2px] mb-2"></div>
 
       {publications.slice(0, visibleCount).map((pub, index) => (
