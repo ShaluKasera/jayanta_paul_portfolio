@@ -11,7 +11,7 @@ const editRouter = require('./routes/edit')
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://jayanta-paul-portfolio-awom.vercel.app/",  
+  origin: "http://localhost:5173",  
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  
   allowedHeaders: ['Content-Type', 'Authorization'],  
 }));
