@@ -151,7 +151,7 @@ const Achievements = () => {
                 placeholder="Year (e.g., 2023)"
                 value={form.year}
                 onChange={(e) => setForm({ ...form, year: e.target.value })}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 rounded mb-2"
                 required
                 min="1900"
                 max={new Date().getFullYear()}
@@ -160,7 +160,7 @@ const Achievements = () => {
                 placeholder="Text"
                 value={form.text}
                 onChange={(e) => setForm({ ...form, text: e.target.value })}
-                className="w-full border p-2 rounded h-28"
+                className="w-full border p-2 mb-2 rounded h-28"
                 required
               />
               <div className="flex justify-end gap-2">
