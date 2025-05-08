@@ -8,7 +8,7 @@ import Publication from "./Publication";
 import Referees from "./Referees";
 import Responsibility from "./Responsibility";
 import Skills from "./Skills";
-import Achievements from "./Achievements";
+import Achievements from "./Acheivements";
 
 const Portfolio = () => {
   const [selectedSection, setSelectedSection] = useState("Education");

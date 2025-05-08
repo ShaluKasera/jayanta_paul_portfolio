@@ -6,8 +6,10 @@ const createAchievement = async (req, res) => {
     const { year, text } = req.body;
 
     // Validate inputs
-    if (typeof year !== "number" || !text) {
-      return res.status(400).json({ message: "Year (number) and text (string) are required." });
+    if (!year || !text) {
+      return res
+        .status(400)
+        .json({ message: "Both year and text are required." });
     }
 
     const achievement = new Achievement({ year, text });
@@ -36,20 +38,12 @@ const updateAchievement = async (req, res) => {
   try {
     const { id } = req.params;
     const { year, text } = req.body;
-
-    // Optional: validate inputs if provided
-    const update = {};
-    if (year !== undefined) {
-      if (typeof year !== "number") {
-        return res.status(400).json({ message: "Year must be a number." });
-      }
-      update.year = year;
-    }
-    if (text !== undefined) {
-      update.text = text;
-    }
-
-    const achievement = await Achievement.findByIdAndUpdate(id, update, { new: true });
+    const updates = {};
+    if (year !== undefined) updates.year = year;
+    if (text !== undefined) updates.text = text;
+    const achievement = await Achievement.findByIdAndUpdate(id, updates, {
+      new: true,
+    });
     if (!achievement) {
       return res.status(404).json({ message: "Achievement not found" });
     }

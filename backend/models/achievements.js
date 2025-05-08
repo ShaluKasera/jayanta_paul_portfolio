@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const achievementSchema = new mongoose.Schema(
   {
     year: {
-      type: Number, 
+      type: String, 
       required: true,
     },
     text: {

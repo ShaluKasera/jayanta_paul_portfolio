@@ -4,11 +4,9 @@ const Publication = require("../models/publication");
 const createPublication = async (req, res) => {
   try {
     const { year, text } = req.body;
-    if (typeof year !== "number" || !text) {
-      return res
-        .status(400)
-        .json({ message: "Both numeric year and text are required." });
-    }
+    if (!year || !text) {
+        return res.status(400).json({ message: "Both year and text are required." });
+      }
     const publication = new Publication({ year, text });
     await publication.save();
     res.status(201).json({ message: "Publication created", publication });
@@ -36,14 +34,7 @@ const updatePublication = async (req, res) => {
     const { id } = req.params;
     const { year, text } = req.body;
     const updates = {};
-    if (year !== undefined) {
-      if (typeof year !== "number") {
-        return res
-          .status(400)
-          .json({ message: "Year must be a number." });
-      }
-      updates.year = year;
-    }
+    if (year !== undefined) updates.year = year;
     if (text !== undefined) updates.text = text;
 
     const publication = await Publication.findByIdAndUpdate(id, updates, {

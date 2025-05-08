@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FiEdit2, FiTrash2, FiPlus } from "react-icons/fi";
 
-const API_URL = import.meta.env.VITE_BACKEND_URL + "/edit/assistantship";
+const API_URL = import.meta.env.VITE_BACKEND_URL + "/edit/acheivement";
 
-const AssistantshipItem = ({ item, onEdit, onDelete, isLoggedIn }) => (
+const AchievementItem = ({ item, onEdit, onDelete, isLoggedIn }) => (
   <div className="flex justify-between items-start mb-3">
     <div className="flex font-light">
       <div className="font-semibold">{item.year}:</div>
@@ -23,8 +23,8 @@ const AssistantshipItem = ({ item, onEdit, onDelete, isLoggedIn }) => (
   </div>
 );
 
-const Assistantship = () => {
-  const [assistantship, setAssistantship] = useState([]);
+const Achievements = () => {
+  const [achievements, setAchievements] = useState([]);
   const [visibleCount, setVisibleCount] = useState(3);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -32,19 +32,19 @@ const Assistantship = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const isEditing = form.id !== null;
 
-  const fetchAssistantship = async () => {
+  const fetchAchievements = async () => {
     try {
       const res = await axios.get(API_URL);
-      setAssistantship(res.data.assistantships || []);
+      setAchievements(Array.isArray(res.data) ? res.data : res.data.achievements || []);
     } catch (error) {
-      console.error("Failed to fetch assistantship:", error);
+      console.error("Failed to fetch achievements:", error);
     }
   };
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     setIsLoggedIn(!!token);
-    fetchAssistantship();
+    fetchAchievements();
   }, []);
 
   const handleViewMore = () => setVisibleCount((prev) => prev + 3);
@@ -61,13 +61,13 @@ const Assistantship = () => {
   };
 
   const handleDelete = async (item) => {
-    if (window.confirm(`Delete assistantship from ${item.year}?`)) {
+    if (window.confirm(`Delete achievement from ${item.year}?`)) {
       try {
         const token = localStorage.getItem("token");
         await axios.delete(`${API_URL}/${item._id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
-        fetchAssistantship();
+        fetchAchievements();
       } catch (err) {
         console.error("Delete failed:", err);
       }
@@ -102,7 +102,7 @@ const Assistantship = () => {
         });
       }
 
-      fetchAssistantship();
+      fetchAchievements();
       closeForm();
     } catch (err) {
       console.error("Save failed:", err);
@@ -113,7 +113,7 @@ const Assistantship = () => {
   return (
     <div>
       <div className="flex justify-between items-center mb-2">
-        <p className="text-left text-2xl font-mono">Laboratory Assistantship</p>
+        <p className="text-left text-2xl font-mono">Achievements</p>
         {isLoggedIn && (
           <button onClick={() => openForm()} className="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition">
             <FiPlus size={18} />
@@ -124,12 +124,12 @@ const Assistantship = () => {
 
       <div className="bgblue w-full h-[2px] mb-2"></div>
 
-      {assistantship.slice(0, visibleCount).map((item) => (
-        <AssistantshipItem key={item._id} item={item} isLoggedIn={isLoggedIn} onEdit={openForm} onDelete={handleDelete} />
+      {achievements.slice(0, visibleCount).map((item) => (
+        <AchievementItem key={item._id} item={item} isLoggedIn={isLoggedIn} onEdit={openForm} onDelete={handleDelete} />
       ))}
 
       <div className="mt-2 flex justify-center gap-4">
-        {visibleCount < assistantship.length && (
+        {visibleCount < achievements.length && (
           <button onClick={handleViewMore} className="px-4 py-2 bgblue text-white rounded transition">
             View More
           </button>
@@ -144,15 +144,17 @@ const Assistantship = () => {
       {isFormOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg w-[90%] max-w-md shadow-lg">
-            <h2 className="text-lg font-semibold mb-4">{isEditing ? "Edit Assistantship" : "Add Assistantship"}</h2>
+            <h2 className="text-lg font-semibold mb-4">{isEditing ? "Edit Achievement" : "Add Achievement"}</h2>
             <form onSubmit={handleFormSubmit} className="space-y-4">
-            <input
-                type="text"
-                placeholder="Year or duration "
+              <input
+                type="number"
+                placeholder="Year (e.g., 2023)"
                 value={form.year}
                 onChange={(e) => setForm({ ...form, year: e.target.value })}
                 className="w-full border p-2 rounded"
                 required
+                min="1900"
+                max={new Date().getFullYear()}
               />
               <textarea
                 placeholder="Text"
@@ -177,4 +179,4 @@ const Assistantship = () => {
   );
 };
 
-export default Assistantship;
+export default Achievements;

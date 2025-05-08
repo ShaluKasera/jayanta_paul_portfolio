@@ -57,10 +57,10 @@ router.put("/acheivement/:id", auth,updateAchievement);
 router.delete("/acheivement/:id", auth,deleteAchievement);
 
 //assistanship
-router.post("/assistanship",auth, createAssistantship);
-router.get("/assistanship", getAllAssistantship);
-router.put("/assistanship/:id",auth, updateAssistantship);
-router.delete("/assistanship/:id",auth, deleteAssistantship);
+router.post("/assistantship",auth, createAssistantship);
+router.get("/assistantship", getAllAssistantship);
+router.put("/assistantship/:id",auth, updateAssistantship);
+router.delete("/assistantship/:id",auth, deleteAssistantship);
 
 //fellowship
 router.post("/fellowship", auth,createFellowship);

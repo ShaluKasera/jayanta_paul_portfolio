@@ -7,7 +7,7 @@ const skillSchema = new mongoose.Schema(
       required: true,
     },
     item: {
-      type: String,
+      type: [String],
       required: true,
     },
   },
