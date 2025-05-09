@@ -28,7 +28,7 @@ const Home = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4 w-full sm:w-auto">
           <a href="https://drive.google.com/file/d/16904LpOdO_LQ2uF1KDjq-jSmqLZ4glk9/view?usp=sharing" download>
-            <button className="px-4 py-2 b">Resume</button>
+            <button className="px-4 py-2 b w-full">Resume</button>
             </a>
             <Link to="/portfolio" className="px-4 py-2 b2 text-center">
               Portfolio
