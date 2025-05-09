@@ -11,7 +11,7 @@ const editRouter = require('./routes/edit')
 app.use(express.json());
 
 app.use(cors({
-  origin: "https://jayanta-paul-portfolio-ig9r.vercel.app/",  
+  origin: "https://jayanta-paul-portfolio.vercel.app/portfolio",  
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  
   allowedHeaders: ['Content-Type', 'Authorization'],  
 }));
