@@ -1,14 +1,16 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { Link } from "react-router-dom";
-
+import img1 from "../assets/img1.jpeg"
 const Home = () => {
   return (
     <Layout>
       <div className="flex flex-col lg:flex-row w-full items-center lg:items-start">
         {/* Left side — Circle */}
         <div className="w-full lg:w-1/2 flex justify-center items-center mt-10 lg:mt-20">
-          <div className="border h-60 w-60 rounded-full lg:h-80 lg:w-80"></div>
+          <div >
+             <img src={img1} alt="pic" className=' h-60 w-60 rounded-full lg:h-80 lg:w-80' />
+          </div>
         </div>
 
         {/* Right side — Content */}

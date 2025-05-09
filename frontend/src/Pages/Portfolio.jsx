@@ -9,7 +9,7 @@ import Referees from "./Referees";
 import Responsibility from "./Responsibility";
 import Skills from "./Skills";
 import Achievements from "./Acheivements";
-
+import img from "../assets/img2.jpeg";
 const Portfolio = () => {
   const [selectedSection, setSelectedSection] = useState("Education");
 
@@ -59,12 +59,17 @@ const Portfolio = () => {
       <div className="flex flex-col md:flex-row w-11/12 mx-auto md:space-x-4 space-y-4 md:space-y-0 ">
         {/* Left div (ALWAYS first) */}
         <div className="px-2 py-2 w-full md:w-[25%] text-center">
-          <div className="border h-[250px] mt-10 rounded-3xl"></div>
+          <div>
+            <img
+              src={img}
+              alt="pic"
+              className="ms-10 h-[250px] mt-10 rounded-3xl"
+            />
+          </div>
         </div>
 
         {/* Middle + Right container to control mobile order */}
         <div className="flex flex-col-reverse md:flex-row w-full md:w-[70%] md:space-x-4 space-y-4 md:space-y-0">
-          
           {/* Middle dynamic content (last on mobile, middle on desktop) */}
           <div className="w-full md:w-[70%] text-center p-4 rounded-3xl min-h-[250px] ">
             {renderSection()}
@@ -86,7 +91,6 @@ const Portfolio = () => {
               </button>
             ))}
           </div>
-
         </div>
       </div>
     </Layout>
