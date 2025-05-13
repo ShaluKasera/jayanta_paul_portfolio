@@ -137,7 +137,7 @@ const Referees = () => {
                   placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
                   value={form[field]}
                   onChange={(e) => setForm({ ...form, [field]: e.target.value })}
-                  className="w-full border p-2 rounded"
+                  className="w-full border p-2 mb-2 rounded"
                   required
                 />
               ))}

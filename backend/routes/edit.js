@@ -20,7 +20,7 @@ const {
   getAllFellowship,
   updateFellowship,
   deleteFellowship,
-} = require("../controllers/fellwoship")
+} = require("../controllers/fellwoship");
 
 const {
   createPublication,
@@ -30,66 +30,92 @@ const {
 } = require("../controllers/publication");
 
 const {
-    createReferee,
-    getAllReferees,
-    updateReferee,
-    deleteReferee,
-  } = require("../controllers/referees");
+  createReferee,
+  getAllReferees,
+  updateReferee,
+  deleteReferee,
+} = require("../controllers/referees");
 
-  const {
-    createResponsibility,
-    getAllResponsibilities,
-    updateResponsibility,
-    deleteResponsibility,
-  } = require("../controllers/responsibility");
+const {
+  createResponsibility,
+  getAllResponsibilities,
+  updateResponsibility,
+  deleteResponsibility,
+} = require("../controllers/responsibility");
 
-  const {
-    createSkill,
-    getAllSkills,
-    updateSkill,
-    deleteSkill,
-  } = require("../controllers/skill");
+const {
+  createSkill,
+  getAllSkills,
+  updateSkill,
+  deleteSkill,
+} = require("../controllers/skill");
+
+const {
+  createEducation,
+  updateEducation,
+  getAllEducations,
+  deleteEducation
+} = require("../controllers/education");
+
+const {
+  createPersonalInfo,
+  updatePersonalInfo,
+  getAllPersonalInfo,
+  deletePersonalInfo,
+} = require("../controllers/personalInfo");
+
+//peronalInfo
+router.post("/personalInfo", auth, createPersonalInfo);
+router.get("/personalInfo", getAllPersonalInfo);
+router.put("/personalInfo/:id", auth, updatePersonalInfo);
+router.delete("/personalInfo/:id", auth, deletePersonalInfo);
+
+//education
+router.post("/education", auth, createEducation);           
+router.get("/education", getAllEducations);                 
+router.put("/education/:id", auth, updateEducation);        
+router.delete("/education/:id", auth, deleteEducation);
 
 //acheivement
-router.post("/acheivement",auth, createAchievement);
+router.post("/acheivement", auth, createAchievement);
 router.get("/acheivement", getAllAchievements);
-router.put("/acheivement/:id", auth,updateAchievement);
-router.delete("/acheivement/:id", auth,deleteAchievement);
+router.put("/acheivement/:id", auth, updateAchievement);
+router.delete("/acheivement/:id", auth, deleteAchievement);
 
 //assistanship
-router.post("/assistantship",auth, createAssistantship);
+router.post("/assistantship", auth, createAssistantship);
 router.get("/assistantship", getAllAssistantship);
-router.put("/assistantship/:id",auth, updateAssistantship);
-router.delete("/assistantship/:id",auth, deleteAssistantship);
+router.put("/assistantship/:id", auth, updateAssistantship);
+router.delete("/assistantship/:id", auth, deleteAssistantship);
 
 //fellowship
-router.post("/fellowship", auth,createFellowship);
+router.post("/fellowship", auth, createFellowship);
 router.get("/fellowship", getAllFellowship);
-router.put("/fellowship/:id",auth, updateFellowship);
-router.delete("/fellowship/:id",auth, deleteFellowship);
+router.put("/fellowship/:id", auth, updateFellowship);
+router.delete("/fellowship/:id", auth, deleteFellowship);
 
 //publication
-router.post("/publication",auth, createPublication);
+router.post("/publication", auth, createPublication);
 router.get("/publication", getAllPublications);
-router.put("/publication/:id", auth,updatePublication);
-router.delete("/publication/:id",auth, deletePublication);
+router.put("/publication/:id", auth, updatePublication);
+router.delete("/publication/:id", auth, deletePublication);
 
 //referee
-router.post("/referee",auth, createReferee);
+router.post("/referee", auth, createReferee);
 router.get("/referee", getAllReferees);
-router.put("/referee/:id",auth, updateReferee);
-router.delete("/referee/:id",auth, deleteReferee);
+router.put("/referee/:id", auth, updateReferee);
+router.delete("/referee/:id", auth, deleteReferee);
 
 //responsibility
-router.post("/responsibility",auth, createResponsibility);
+router.post("/responsibility", auth, createResponsibility);
 router.get("/responsibility", getAllResponsibilities);
-router.put("/responsibility/:id",auth, updateResponsibility);
-router.delete("/responsibility/:id",auth, deleteResponsibility);
+router.put("/responsibility/:id", auth, updateResponsibility);
+router.delete("/responsibility/:id", auth, deleteResponsibility);
 
 //skills
-router.post("/skills",auth, createSkill);
+router.post("/skills", auth, createSkill);
 router.get("/skills", getAllSkills);
-router.put("/skills/:id",auth, updateSkill);
-router.delete("/skills/:id",auth, deleteSkill);
+router.put("/skills/:id", auth, updateSkill);
+router.delete("/skills/:id", auth, deleteSkill);
 
 module.exports = router;

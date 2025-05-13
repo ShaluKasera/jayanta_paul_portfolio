@@ -128,7 +128,7 @@ const Skills = () => {
                 placeholder="Title"
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 mb-2 rounded"
                 required
               />
               <input
@@ -136,7 +136,7 @@ const Skills = () => {
                 placeholder="Items (comma separated)"
                 value={form.item}
                 onChange={(e) => setForm({ ...form, item: e.target.value })}
-                className="w-full border p-2 rounded"
+                className="w-full border p-2 mb-2 rounded"
                 required
               />
 
