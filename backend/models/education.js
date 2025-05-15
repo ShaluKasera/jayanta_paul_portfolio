@@ -9,7 +9,24 @@ const educationSchema = new mongoose.Schema(
     year:{
       type:String,
       required:true,
-    }
+    },
+    resumeURL: {
+  type: String,
+  default: null,
+  validate: {
+    validator: function (value) {
+      if (!value) return true;
+      return value.startsWith("http") && value.endsWith(".pdf");
+    },
+    message: "Resume must be a valid PDF URL",
+  },
+},
+resumePublicId: {
+  type: String,
+  default: null,
+},
+
+
   },
   { timestamps: true }
 );

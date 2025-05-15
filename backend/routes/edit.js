@@ -63,6 +63,7 @@ const {
   getAllPersonalInfo,
   deletePersonalInfo,
 } = require("../controllers/personalInfo");
+const upload = require("../config/cloudinaryConfig");
 
 //peronalInfo
 router.post("/personalInfo", auth, createPersonalInfo);
@@ -71,9 +72,9 @@ router.put("/personalInfo/:id", auth, updatePersonalInfo);
 router.delete("/personalInfo/:id", auth, deletePersonalInfo);
 
 //education
-router.post("/education", auth, createEducation);           
+router.post("/education", auth,upload.single("resumeURL"), createEducation);           
 router.get("/education", getAllEducations);                 
-router.put("/education/:id", auth, updateEducation);        
+router.put("/education/:id", auth,upload.single("resumeURL"), updateEducation);        
 router.delete("/education/:id", auth, deleteEducation);
 
 //acheivement

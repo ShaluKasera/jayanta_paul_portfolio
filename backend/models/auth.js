@@ -15,6 +15,16 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    profileImageURL: {
+      type: String,
+      default: "/uploads/default.png",
+      validate: {
+        validator: function (value) {
+          return value.startsWith("http") || value.startsWith("/uploads/");
+        },
+        message: "Profile image must be a valid image URL",
+      },
+    },
   },
   { timestamps: true }
 );

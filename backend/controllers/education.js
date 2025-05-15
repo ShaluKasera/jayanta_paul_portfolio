@@ -1,4 +1,7 @@
 const Education = require("../models/education");
+const cloudinary = require("../config/cloudinaryConfig");
+const path = require("path");
+const fs = require("fs");
 
 // Create a new education entry
 const createEducation = async (req, res) => {
@@ -8,7 +11,11 @@ const createEducation = async (req, res) => {
       return res.status(400).json({ message: "Both year and text are required." });
     }
 
-    const education = new Education({ year, text });
+    const education = new Education({
+      year,
+      text,
+    });
+
     await education.save();
     res.status(201).json({ message: "Education created", education });
   } catch (err) {
@@ -37,10 +44,12 @@ const updateEducation = async (req, res) => {
     const updates = {};
     if (year !== undefined) updates.year = year;
     if (text !== undefined) updates.text = text;
+  
 
     const education = await Education.findByIdAndUpdate(id, updates, {
       new: true,
     });
+
     if (!education) {
       return res.status(404).json({ message: "Education not found" });
     }
@@ -52,15 +61,15 @@ const updateEducation = async (req, res) => {
   }
 };
 
-// Delete an education by ID
+// Delete an education by ID and remove resume from Cloudinary
 const deleteEducation = async (req, res) => {
   try {
     const { id } = req.params;
     const education = await Education.findByIdAndDelete(id);
+
     if (!education) {
       return res.status(404).json({ message: "Education not found" });
     }
-
     res.status(200).json({ message: "Education deleted" });
   } catch (err) {
     console.error("Delete Education Error:", err);

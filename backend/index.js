@@ -1,12 +1,16 @@
 require("dotenv").config();
-
 const express = require("express");
+const connectDB = require("./dbconnection/connetion");
 const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+
 const userRouter = require("./routes/auth");
 const editRouter = require("./routes/edit");
+const resumeRoute = require("./routes/resumeRoute");
+const imageRoute = require("./routes/imageRoute")
 
 app.use(express.json());
 
@@ -21,15 +25,14 @@ app.use(
   })
 );
 
-const connect = require("./connection/connetion");
-connect();
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
-});
+connectDB();
 
-app.use("/user", userRouter);
-app.use("/edit", editRouter);
+
+app.use("/api/user", userRouter);
+app.use("/api/edit", editRouter);
+app.use("/api/resume",resumeRoute);
+app.use("/api/image",imageRoute )
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
