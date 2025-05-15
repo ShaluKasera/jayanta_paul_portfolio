@@ -34,7 +34,7 @@ const Home = () => {
 
     const fetchImage = async () => {
       try {
-        const res = await axios.get(`${API_URL}/resume/image/homepage-image`);
+        const res = await axios.get(`${API_URL}/image/homepage-image`);
         if (res.data?.image) setProfileImage(res.data.image);
       } catch (err) {
         console.error("Error fetching image:", err);
@@ -66,7 +66,7 @@ const Home = () => {
 
     try {
       const res = await axios.post(
-        `${API_URL}/resume/image/homepage-image/add`,
+        `${API_URL}/image/homepage-image/add`,
         formData,
         {
           headers: {
@@ -95,7 +95,7 @@ const Home = () => {
 
     try {
       const res = await axios.post(
-        `${API_URL}/resume/resume/add-resume`,
+        `${API_URL}/resume/add-resume`,
         formData,
         {
           headers: {
