@@ -4,7 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { FiEdit2, FiTrash2, FiPlus } from "react-icons/fi";
 
-const API_URL =import.meta.env.VITE_BACKEND_URL + "/edit/referee";
+const API_URL =import.meta.env.VITE_BACKEND_URL + "/api/edit/referee";
 
 const RefereeItem = ({ referee, onEdit, onDelete, isLoggedIn }) => {
   const { name, position, department, institute, phone, email } = referee;

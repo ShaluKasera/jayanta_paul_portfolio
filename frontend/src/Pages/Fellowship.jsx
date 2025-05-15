@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FiEdit2, FiTrash2, FiPlus } from "react-icons/fi";
 
-const API_URL = import.meta.env.VITE_BACKEND_URL + "/edit/fellowship";
+const API_URL = import.meta.env.VITE_BACKEND_URL + "/api/edit/fellowship";
 
 const FellowshipItem = ({ fellowship, onEdit, onDelete, isLoggedIn }) => (
   <div className="flex justify-between items-start mb-3">

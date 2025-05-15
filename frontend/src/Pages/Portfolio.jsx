@@ -14,6 +14,7 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FiEdit } from "react-icons/fi";
 import img from "../assets/img2.jpeg";
+const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api`;
 
 const Portfolio = () => {
   const [selectedSection, setSelectedSection] = useState("Education");
@@ -27,7 +28,7 @@ const Portfolio = () => {
 
     const fetchImage = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/image/portfolio-image");
+        const res = await axios.get(`${API_URL}/image/portfolio-image`);
         if (res.data?.image) setProfileImage(res.data.image);
       } catch (err) {
         console.error("Error fetching image:", err);
@@ -49,7 +50,7 @@ const Portfolio = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/image/portfolio-image/add",
+        `${API_URL}/image/portfolio-image/add`,
         formData,
         {
           headers: {

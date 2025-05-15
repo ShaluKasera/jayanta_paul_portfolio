@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FiPlus, FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const API_URL = `${import.meta.env.VITE_BACKEND_URL}/edit/skills`;
+const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/edit/skills`;
 
 const SkillItem = ({ skill, onEdit, onDelete, isLoggedIn }) => {
   return (

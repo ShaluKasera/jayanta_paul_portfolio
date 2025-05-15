@@ -6,7 +6,7 @@ import axios from "axios";
 import { FiEdit } from "react-icons/fi";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+const API_URL = import.meta.env.VITE_BACKEND_URL + "/api";
 
 
 const Home = () => {
@@ -23,7 +23,7 @@ const Home = () => {
 
     const fetchResume = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/resume");
+        const response = await axios.get(`${API_URL}/resume`);
         if (response.data && response.data.resume) {
           setResume(response.data.resume);
         }
@@ -34,7 +34,7 @@ const Home = () => {
 
     const fetchImage = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/image/homepage-image");
+        const res = await axios.get(`${API_URL}/resume/image/homepage-image`);
         if (res.data?.image) setProfileImage(res.data.image);
       } catch (err) {
         console.error("Error fetching image:", err);
@@ -66,7 +66,7 @@ const Home = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/image/homepage-image/add",
+        `${API_URL}/resume/image/homepage-image/add`,
         formData,
         {
           headers: {
@@ -95,7 +95,7 @@ const Home = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/api/resume/add-resume",
+        `${API_URL}/resume/resume/add-resume`,
         formData,
         {
           headers: {

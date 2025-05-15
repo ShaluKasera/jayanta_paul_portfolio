@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FiPlus, FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const API_URL = `${import.meta.env.VITE_BACKEND_URL}/edit/personalInfo`;
+const API_URL = `${import.meta.env.VITE_BACKEND_URL}/api/edit/personalInfo`;
 
 const PersonalInfoItem = ({ info, onEdit, onDelete, isLoggedIn }) => {
   return (

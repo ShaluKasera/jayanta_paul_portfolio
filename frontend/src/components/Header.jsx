@@ -33,7 +33,7 @@ const Header = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/user/login`, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}api/user/login`, {
         email,
         password
       });
