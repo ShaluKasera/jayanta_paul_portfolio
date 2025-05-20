@@ -166,11 +166,7 @@ const Home = () => {
           </p>
           <p className="text-lg font-semibold mb-2">A Bit About Me</p>
           <p className="mb-4 text-justify">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
-            voluptates eum placeat quasi aspernatur id perferendis laborum
-            eveniet vero vel cupiditate optio minus officia, iusto alias
-            veritatis sunt, inventore ex, adipisci dignissimos. Rem ab accusamus
-            facere atque natus beatae perspicia.
+            I’m Jayanta Paul, a PhD researcher in Computer Science at IIEST Shibpur, specializing in deep learning and computer vision with a focus on multimodal social-media analysis, face and emotion recognition, and video summarization—emphasizing explainability and ethical AI. I have authored over 20 peer-reviewed papers presented at venues such as ICPR and published in journals like Neurocomputing. My recent Edge-AI projects involve hybrid CNN–ViT models for real-time sign-language and face-emotion detection on low-power devices. In addition to research, I serve as an instructor for AI/ML labs, Treasurer of the Academic Society of Computer Engineers, and Machine Learning Event Lead for Revelation 2025. My core research interests include multimodal learning, Vision Transformers, explainable and fair AI, and Edge/IoT deployment. Beyond academics, I enjoy playing cricket, strumming the guitar, and mentoring student tech teams.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-4 w-full sm:w-auto relative">
             <button
