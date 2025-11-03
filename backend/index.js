@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(
   cors({
     origin: [
-      "https://jayanta-paul-portfolio.vercel.app",
+      "https://jayanta-paul-portfolio.pixbit.me",
       "http://localhost:5173",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
