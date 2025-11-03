@@ -109,7 +109,7 @@ const resetPassword = async (req, res) => {
 // ====== UPDATE PROFILE ======
 const updateProfile = async (req, res) => {
   try {
-    const { id } = req.user; // assuming you're using middleware to set `req.user`
+    const { id } = req.user;
     const { name, email } = req.body;
 
     const updates = {};

@@ -25,7 +25,7 @@ const storage = new CloudinaryStorage({
         const publicId = `${Date.now()}_${baseName}.${fileExt}`;
 
         const params = {
-            folder: "uploads",
+            folder: "jayanta_portfolio",
             public_id: publicId,
             resource_type: isPdf ? "raw" : (isVideo ? "video" : "image"),
         };
